@@ -1,8 +1,10 @@
-const {Router} = require("express")
+const {Router} = require("express");
+const { getPath, savePath, updatePath, deletePath } = require("../controllers/pathController");
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.json({message: "OK..."})
-})
+router.get('/', getPath)
+router.post('/save', savePath)
+router.post('/update', updatePath)
+router.post('/delete', deletePath)
 
 module.exports = router;
