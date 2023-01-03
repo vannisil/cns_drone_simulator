@@ -2,6 +2,15 @@ import axios from 'axios'
 
 const baseUrl = "http://localhost:5000"
 
+const getAllPath = (setPath) => {
+    axios
+        .get(baseUrl)
+        .then(({ data }) => {
+            console.log('data ---> ', data);
+            setPath(data)
+        })
+}
+
 const getAllCu = (setCu) => {
     axios
         .get(baseUrl)
@@ -11,10 +20,23 @@ const getAllCu = (setCu) => {
         })
 }
 
-const addCu = (text, setText, setCu) => {
+const addPath = (text, setText, setPath) => {
 
     axios
         .post(`${baseUrl}/save`, { text })
+        .then((data) => {
+            console.log(data);
+            setText("")
+            getAllPath(setPath)
+        })
+        .catch((err) => console.log(err))
+
+}
+
+const addCu = (text, setText, setCu) => {
+
+    axios
+        .post(`${baseUrl}/saveCu`, { text })
         .then((data) => {
             console.log(data);
             setText("")
@@ -27,7 +49,7 @@ const addCu = (text, setText, setCu) => {
 const updateCu = (CuId, text, setCu, setText, setIsUpdating) => {
 
     axios
-        .post(`${baseUrl}/update`, { _id: CuId, text })
+        .post(`${baseUrl}/updateCu`, { _id: CuId, text })
         .then((data) => {
             setText("")
             setIsUpdating(false)
@@ -37,10 +59,23 @@ const updateCu = (CuId, text, setCu, setText, setIsUpdating) => {
 
 }
 
+const updatePath = (pathId, text, setPath, setText, setIsUpdating) => {
+
+    axios
+        .post(`${baseUrl}/update`, { _id: pathId, text })
+        .then((data) => {
+            setText("")
+            setIsUpdating(false)
+            getAllPath(setPath)
+        })
+        .catch((err) => console.log(err))
+
+}
+
 const deleteCu = (_id, setCu) => {
 
     axios
-        .post(`${baseUrl}/delete`, { _id })
+        .post(`${baseUrl}/deleteCu`, { _id })
         .then((data) => {
             console.log(data)
             getAllCu(setCu)
@@ -49,5 +84,17 @@ const deleteCu = (_id, setCu) => {
 
 }
 
+const deletePath = (_id, setPath) => {
 
-export { getAllCu, addCu, updateCu, deleteCu }
+    axios
+        .post(`${baseUrl}/delete`, { _id })
+        .then((data) => {
+            console.log(data)
+            getAllPath(setPath)
+        })
+        .catch((err) => console.log(err))
+
+}
+
+
+export { getAllCu, getAllPath, addCu, addPath, updateCu, updatePath, deleteCu, deletePath }
