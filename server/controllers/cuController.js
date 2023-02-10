@@ -1,4 +1,4 @@
-const pathModel = require('../models/cuModel')
+const cuModel = require('../models/cuModel')
 
 module.exports.getCu = async (req, res) => {
     const cu = await cuModel.find()
@@ -9,7 +9,7 @@ module.exports.saveCu = async (req, res) => {
 
     const { text } = req.body
 
-    pathModel
+    cuModel
     .create({text})
     .then((data) => {
         console.log("Cu Aggiunta con successo...");
@@ -25,10 +25,10 @@ module.exports.updateCu = async (req, res) => {
     .catch((err) => console.log(err))
 }
 
-module.exports.deleteCu = async (req, res) => {
+module.exports.deleteC = async (req, res) => {
     const {_id} = req.body
     cuModel
     .findByIdAndDelete(_id)
-    .then(() => res.set(201).send("Cu Eliminata con successo..."))
+    .then(() => res.set(201).send("Eliminato con successo..."))
     .catch((err) => console.log(err))
 }

@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const routes = require('./routes/createPathRoute')
+const routeCreatePath = require('./routes/createPathRoute')
 const cors = require("cors")
 
 require('dotenv').config()
@@ -16,6 +16,6 @@ mongoose
     .then(()=> console.log('Connected...'))
     .catch((err) => console.log(err))
 
-    app.use(routes)
+    app.use(routeCreatePath)
 
 app.listen(PORT, ()=> console.log('Listening on:' + PORT))
