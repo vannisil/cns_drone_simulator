@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const routeCreatePath = require('./routes/createPathRoute')
+const routeCreatePath = require('./routes/createRoute')
 const cors = require("cors")
 
 require('dotenv').config()
