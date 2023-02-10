@@ -4,7 +4,7 @@ const baseUrl = "http://localhost:5000"
 
 const getAllPath = (setPath) => {
     axios
-        .get(baseUrl)
+        .get(`${baseUrl}/getPath`)
         .then(({ data }) => {
             console.log('data ---> ', data);
             setPath(data)
@@ -13,12 +13,14 @@ const getAllPath = (setPath) => {
 
 const getAllCu = (setCu) => {
     axios
-        .get(baseUrl)
+        .get(`${baseUrl}/getCu`)
         .then(({ data }) => {
             console.log('data ---> ', data);
             setCu(data)
         })
+    
 }
+
 
 const addPath = (text, setText, setPath) => {
 

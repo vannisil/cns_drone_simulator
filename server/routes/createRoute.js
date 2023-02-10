@@ -4,7 +4,7 @@ const { getCu, saveCu, updateCu, deleteC } = require("../controllers/cuControlle
 const router = Router()
 
 //CREATE PATH
-router.get('/', getPath)
+router.get('/getPath', getPath)
 router.post('/save', savePath)
 router.post('/update', updatePath)
 router.post('/delete', deletePath)

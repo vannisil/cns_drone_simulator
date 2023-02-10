@@ -16,9 +16,9 @@ function Home() {
             <h1>Home</h1>
             <div className="split left">
                 <div className="centered">
-                    <a href="/path">CREA CUs</a>
+                    <a href="/path">CREA NUOVA CU</a>
                     <br></br>
-                    <a>CREA PERCORSO</a>
+                    <a href="/path">CREA PERCORSO</a>
                 </div>
             </div>
             <div className="split right">
