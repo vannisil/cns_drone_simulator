@@ -22,8 +22,13 @@ h1{
   text-align: center;
 }
 
-.top{
+h2{
   margin-top: 1rem;
+  text-align: center;
+}
+
+.top{
+  margin-top: 3rem;
   display: flex;
   gap: 1rem;
   justify-content: center;
@@ -47,10 +52,12 @@ input{
 .cu{
   position: relative;
   margin-top: 1rem;
+  width: 50%;
   background-color: #000;
   color: #fff;
   padding: 1.5rem 3rem;
   border-radius: 5px;
+  left: 20%;
 }
 
 .icons{
