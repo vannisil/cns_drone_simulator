@@ -1,7 +1,8 @@
 
 import CreatePath from "./CreatePath";
+import controlUnit from "./ControlUnit";
 import Home from "./Home";
-
+import Sidebar from "./components/Sidebar";
 
 function App() {
   let Component
@@ -11,10 +12,15 @@ function App() {
       break
     case "/path":
       Component = CreatePath
+    case "/controlUnit":
+      Component = controlUnit
   }
 
   return (
-    <Component />
+    <>
+      <Sidebar />
+      <Component />
+    </>
   );
 }
 

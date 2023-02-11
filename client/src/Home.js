@@ -13,8 +13,10 @@ function Home() {
     
     return (
         <div className="Home">
+            <div className="centered">
             <h1>Home</h1>
-            <div className="split left">
+            </div>
+            {/* <div className="split left">
                 <div className="centered">
                     <a href="/path">CREA NUOVA CU</a>
                     <br></br>
@@ -31,7 +33,7 @@ function Home() {
 
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 
