@@ -21,6 +21,16 @@ const getAllCu = (setCu) => {
     
 }
 
+const getAllVehicle = (setVehicle) => {
+    axios
+        .get(`${baseUrl}/getVehicle`)
+        .then(({ data }) => {
+            console.log('data ---> ', data);
+            setVehicle(data)
+        })
+    
+}
+
 
 const addPath = (text, setText, setPath) => {
 
@@ -43,6 +53,19 @@ const addCu = (text, setText, setCu) => {
             console.log(data);
             setText("")
             getAllCu(setCu)
+        })
+        .catch((err) => console.log(err))
+
+}
+
+const addVehicle = (text, setText, setVehicle) => {
+
+    axios
+        .post(`${baseUrl}/saveVehicle`, { text })
+        .then((data) => {
+            console.log(data);
+            setText("")
+            getAllVehicle(setVehicle)
         })
         .catch((err) => console.log(err))
 
@@ -74,6 +97,19 @@ const updatePath = (pathId, text, setPath, setText, setIsUpdating) => {
 
 }
 
+const updateVehicle = (vehicleId, text, setVehicle, setText, setIsUpdating) => {
+
+    axios
+        .post(`${baseUrl}/updateVehicle`, { _id: vehicleId, text })
+        .then((data) => {
+            setText("")
+            setIsUpdating(false)
+            getAllPath(setVehicle)
+        })
+        .catch((err) => console.log(err))
+
+}
+
 const deleteCu = (_id, setCu) => {
 
     axios
@@ -98,5 +134,17 @@ const deletePath = (_id, setPath) => {
 
 }
 
+const deleteVehicle = (_id, setVehicle) => {
 
-export { getAllCu, getAllPath, addCu, addPath, updateCu, updatePath, deleteCu, deletePath }
+    axios
+        .post(`${baseUrl}/deleteVehicle`, { _id })
+        .then((data) => {
+            console.log(data)
+            getAllPath(setVehicle)
+        })
+        .catch((err) => console.log(err))
+
+}
+
+
+export { getAllVehicle, getAllCu, getAllPath, addVehicle, addCu, addPath, updateVehicle, updateCu, updatePath, deleteVehicle, deleteCu, deletePath }

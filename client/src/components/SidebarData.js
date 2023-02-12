@@ -20,9 +20,9 @@ export const SidebarData = [
     },
 
     {
-        title: "Veichle",
+        title: "Vehicle",
         // icon: <ConnectingAirportsIcon/>,
-        link: "/veichle"
+        link: "/vehicle"
     },
 
     {

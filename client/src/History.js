@@ -4,7 +4,7 @@ import { getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
 import { getAllPath, addPath, updatePath, deletePath } from "./utils/HandleApi";
 
 
-function CreatePath() {
+function History() {
 
   const [cu, setCu] = useState([])
   const [path, setPath] = useState([])
@@ -39,26 +39,13 @@ function CreatePath() {
   return (
     <div className="App">
       <div className="centered">
-      <h1>Create Path</h1>
+      <h1>History</h1>
       <br></br>
-      <p>Insert the name of the path and choose the steps</p>
-        <input
-          type="text"
-          placeholder="Path name"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-        />
-      </div>
-      <div
-        className="add"
-        onClick={isUpdating ?
-          () => updateCu(CuId, text, setCu, setText, setIsUpdating)
-          : () => addCu(text, setText, setCu)}>
-        {isUpdating ? "Update" : "Add"}
+      <p>All the path created</p>
       </div>
       <div className="cuCentered">
         <div className="list">
-          {cu.map((item) => <Cu
+          {path.map((item) => <Cu
             key={item._id}
             text={item.text}
             updateMode={() => updateMode(item._id, item.text)}
@@ -69,4 +56,4 @@ function CreatePath() {
   );
 }
 
-export default CreatePath;
+export default History;

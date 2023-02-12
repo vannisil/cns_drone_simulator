@@ -3,6 +3,8 @@ import CreatePath from "./CreatePath";
 import controlUnit from "./ControlUnit";
 import Home from "./Home";
 import Sidebar from "./components/Sidebar";
+import Vehicle from "./Vehicle";
+import History from "./History";
 
 function App() {
   let Component
@@ -12,8 +14,15 @@ function App() {
       break
     case "/path":
       Component = CreatePath
+      break
     case "/controlUnit":
       Component = controlUnit
+      break
+    case "/vehicle":
+      Component = Vehicle
+      break
+    case "/history":
+      Component = History
   }
 
   return (

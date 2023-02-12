@@ -164,6 +164,8 @@ input{
 
 .cuCentered{
   position: absolute;
+  max-height: 200px;
+  overflow-y: scroll;
   top: 50%;
   left: 30%;
   width: 50%;
