@@ -1,17 +1,16 @@
 import React from 'react'
-import {AiFillCheckCircle} from "react-icons/ai"
+import {BiEdit} from "react-icons/bi"
 import {AiFillDelete} from "react-icons/ai"
 
-const Path = ({text, deletePath}) => {
+const Vhcl = ({text, deletVehicle}) => {
     return (
         <div className="cu">
             <div className="text">{text}</div>
             <div className="icons">
-                <AiFillCheckCircle className='icon'/>
-                <AiFillDelete className='icon' onClick={deletePath} />
+                <AiFillDelete className='icon' onClick={deletVehicle} />
             </div>
         </div>
     )
 }
 
-export default Path
+export default Vhcl

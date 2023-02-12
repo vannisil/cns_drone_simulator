@@ -95,6 +95,7 @@ input{
   height: 100vh;
   width: 250px;
   background-color: #252525;
+  position: fixed;
 }
 
 .List{

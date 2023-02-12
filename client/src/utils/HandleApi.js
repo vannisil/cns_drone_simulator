@@ -140,7 +140,7 @@ const deleteVehicle = (_id, setVehicle) => {
         .post(`${baseUrl}/deleteVehicle`, { _id })
         .then((data) => {
             console.log(data)
-            getAllPath(setVehicle)
+            getAllVehicle(setVehicle)
         })
         .catch((err) => console.log(err))
 

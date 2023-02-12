@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Cu from "./components/Cu";
+import Path from "./components/Path";
 import { getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
 import { getAllPath, addPath, updatePath, deletePath } from "./utils/HandleApi";
 
@@ -12,29 +13,28 @@ function History() {
   const [nameCu, setNameCu] = useState("")
   const [name, setName] = useState("")
   const [isUpdating, setIsUpdating] = useState(false)
-  const [CuId, setCuId] = useState("")
+  const [PathId, setPathId] = useState("")
 
   useEffect(() => {
-    getAllCu(setCu)
     getAllPath(setPath)
   }, [])
 
   const updateMode = (_id, text) => {
     setIsUpdating(true)
     setText(text)
-    setCuId(_id)
+    setPathId(_id)
   }
 
   var cuJson = new Object();
   var jsonString = "";
 
-  function buildCu() {
-    cuJson.name = { nameCu };
-    cuJson.coordinates = { text };
-    jsonString = JSON.stringify(cuJson);
-    setText(jsonString);
-    addCu(text, setText, setCu)
-  }
+  // function buildCu() {
+  //   cuJson.name = { nameCu };
+  //   cuJson.coordinates = { text };
+  //   jsonString = JSON.stringify(cuJson);
+  //   setText(jsonString);
+  //   addCu(text, setText, setCu)
+  // }
 
   return (
     <div className="App">
@@ -45,11 +45,11 @@ function History() {
       </div>
       <div className="cuCentered">
         <div className="list">
-          {path.map((item) => <Cu
+          {path.map((item) => <Path
             key={item._id}
             text={item.text}
             updateMode={() => updateMode(item._id, item.text)}
-            deleteCu={() => deleteCu(item._id, setCu)} />)}
+            deletePath={() => deletePath(item._id, setPath)} />)}
         </div>
       </div>
     </div>

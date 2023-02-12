@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Cu from "./components/Cu";
+import Vhcl from "./components/Vhcl";
 import { getAllVehicle, addVehicle, updateVehicle, deleteVehicle } from "./utils/HandleApi";
 
 
@@ -56,11 +57,11 @@ function Vehicle() {
       </div>
       <div className="cuCentered">
         <div className="list">
-          {vehicle.map((item) => <Cu
+          {vehicle.map((item) => <Vhcl
             key={item._id}
             text={item.text}
             updateMode={() => updateMode(item._id, item.text)}
-            deleteVehicle={() => deleteVehicle(item._id, setVehicle)} />)}
+            deletVehicle={() => deleteVehicle(item._id, setVehicle)} />)}
         </div>
       </div>
     </div>
