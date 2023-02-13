@@ -5,41 +5,48 @@ import React from "react";
 // import RouteIcon from '@mui/icons-material/RouteIcon';
 // import SportsEsportsIcon from '@mui/icons-material/SportsEsportsIcon';
 // import HistoryIcon from '@mui/icons-material/HistoryIcon';
+import {AiFillHome} from "react-icons/ai";
+import {AiFillEnvironment} from "react-icons/ai";
+import {TiFlowSwitch} from "react-icons/ti";
+import {FaPlaneDeparture} from "react-icons/fa";
+import {AiFillControl} from "react-icons/ai";
+import {AiOutlineHistory} from "react-icons/ai";
+
 
 export const SidebarData = [
     {
         title: "Home",
-        // icon: <HomeIcon/>,
+        icon: <AiFillHome/>,
         link: "/"
     },
 
     {
         title: "Control units",
-        // icon: <MyLocationIcon/>,
+        icon: <AiFillEnvironment/>,
         link: "/controlUnit"
     },
 
     {
         title: "Vehicle",
-        // icon: <ConnectingAirportsIcon/>,
+        icon: <FaPlaneDeparture/>,
         link: "/vehicle"
     },
 
     {
         title: "Path",
-        // icon: <RouteIcon/>,
+        icon: <TiFlowSwitch/>,
         link: "/path"
     },
 
     {
         title: "Simulator",
-        // icon: <SportsEsportsIcon/>,
+        icon: <AiFillControl/>,
         link: "/simulator"
     },
 
     {
         title: "History",
-        // icon: <HistoryIcon/>,
+        icon: <AiOutlineHistory/>,
         link: "/history"
     },
 ]
