@@ -5,6 +5,7 @@ import Home from "./Home";
 import Sidebar from "./components/Sidebar";
 import Vehicle from "./Vehicle";
 import History from "./History";
+import Simulator from "./Simulator";
 
 function App() {
   let Component
@@ -23,6 +24,9 @@ function App() {
       break
     case "/history":
       Component = History
+      break
+    case "/simulator":
+      Component = Simulator
   }
 
   return (

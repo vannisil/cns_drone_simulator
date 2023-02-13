@@ -7,7 +7,7 @@ const Cu = ({text, updateMode, deleteCu}) => {
         <div className="cu">
             <div className="text">{text}</div>
             <div className="icons">
-                <BiEdit className='icon' onClick={updateMode} />
+                {/* <BiEdit className='icon' onClick={updateMode} /> */}
                 <AiFillDelete className='icon' onClick={deleteCu} />
             </div>
         </div>

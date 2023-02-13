@@ -36,8 +36,8 @@ function ControlUnit() {
     setName("");
     setLat("")
     setLong("");
-
   }
+  
 
   function getName(json){
     var obj = JSON.parse(json);

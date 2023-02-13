@@ -51,6 +51,17 @@ function Vehicle() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
+        <input
+          list='types'
+          id='type'
+          placeholder='Choose the type of the vehicle'
+        />
+        <datalist id='types'>
+          <option>Drone</option>
+          <option>Helicopter</option>
+          <option>Airplane</option>
+          <option>Others</option>
+        </datalist>
       </div>
       <div
         className="add"

@@ -3,7 +3,7 @@ import Cu from "./components/Cu";
 import CuForPath from "./components/CuForPath";
 import { getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
 import { getAllPath, addPath, updatePath, deletePath } from "./utils/HandleApi";
-import {AiFillCloseCircle} from "react-icons/ai"
+import { AiFillCloseCircle } from "react-icons/ai"
 
 
 function CreatePath() {
@@ -19,28 +19,31 @@ function CreatePath() {
   const [modal, setModal] = useState(false);
   const [popText, setPopText] = useState("")
 
-  function getName(json){
+  function getName(json) {
     var obj = JSON.parse(json);
     return obj.name
   }
-  
+
   const toggleModal = (info) => {
-    console.log(info)
-    setName(info)
-    var popUpText = "";
-    for(var i = 0; i < cu.length; i++ ){
-      if(cu[i]["text"]===info){
-        popUpText = cu[i]["text"];
+    var obj = JSON.parse(info);
+    setName(obj["name"])
+    var popUpText = "latitude: ";
+    for (var i = 0; i < cu.length; i++) {
+      if (cu[i]["text"] === info) {
+        popUpText += JSON.parse(info)["latitude"] + "\n";
+        popUpText += "longitude: " + JSON.parse(info)["longitude"];
       }
     }
     setPopText(popUpText)
-    document.getElementById("aggiungi").style.display = "none"
-    document.getElementById("elimina").style.display = "inline"
+    setModal(!modal);
+  };
+
+  const toggleModalExit = () => {
     setModal(!modal);
   };
 
   const aggiungi = (text, setText, setCu) => {
-   // addCu(text, setText, setCu);
+    // addCu(text, setText, setCu);
     document.getElementById("aggiungi").style.display = "none"
     document.getElementById("elimina").style.display = "inline"
   }
@@ -106,7 +109,7 @@ function CreatePath() {
             text={getName(item.text)}
             getInfo={() => toggleModal(item.text)}
             deleteCu={() => elimina(item, setCu)}
-            addCu = {() => aggiungi(text, setText, setCu)}/>)}
+            addCu={() => aggiungi(text, setText, setCu)} />)}
         </div>
       </div>
       <div className="cuCentered">
@@ -120,7 +123,7 @@ function CreatePath() {
                 {popText}
               </p>
               <br></br>
-              <AiFillCloseCircle className='close-modal' onClick={toggleModal} />
+              <AiFillCloseCircle className='close-modal' onClick={toggleModalExit} />
             </div>
           </div>
         )}
