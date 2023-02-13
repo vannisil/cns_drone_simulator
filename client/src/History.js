@@ -25,6 +25,11 @@ function History() {
     setPathId(_id)
   }
 
+  function getName(json) {
+    var obj = JSON.parse(json);
+    return obj[0].namepath
+  }
+
   var cuJson = new Object();
   var jsonString = "";
 
@@ -47,7 +52,7 @@ function History() {
         <div className="list">
           {path.map((item) => <Path
             key={item._id}
-            text={item.text}
+            text={getName(item.text)}
             updateMode={() => updateMode(item._id, item.text)}
             deletePath={() => deletePath(item._id, setPath)} />)}
         </div>

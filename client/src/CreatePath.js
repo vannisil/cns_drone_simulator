@@ -19,6 +19,11 @@ function CreatePath() {
   const [modal, setModal] = useState(false);
   const [popText, setPopText] = useState("")
 
+  const [pathString, setPathString] = useState("[")
+
+  var pathJson = new Object();
+  var jsonPathString = "[";
+
   function getName(json) {
     var obj = JSON.parse(json);
     return obj.name
@@ -42,16 +47,30 @@ function CreatePath() {
     setModal(!modal);
   };
 
-  const aggiungi = (text, setText, setCu) => {
-    // addCu(text, setText, setCu);
-    document.getElementById("aggiungi").style.display = "none"
-    document.getElementById("elimina").style.display = "inline"
+  const aggiungi = (cu, id) => {
+    var obj = JSON.parse(cu)
+    var cuj = new Object;
+    cuj.namepath = text;
+    cuj.name = obj["name"]
+    cuj.latitude = obj["latitude"]
+    cuj.longitudine = obj["longitude"]
+    cuj.time = document.getElementById("time" + id).value
+    cuj.date = document.getElementById("date" + id).value
+    cu = JSON.stringify(cuj)
+    jsonPathString = pathString;
+    jsonPathString += cu + ",";
+    setPathString(jsonPathString)
+    console.log(jsonPathString)
+    document.getElementById("aggiungi" + id).style.display = "none"
+    document.getElementById("elimina" + id).style.display = "inline"
   }
 
-  const elimina = (item, setCu) => {
-    //deleteCu(item._id, setCu);
-    document.getElementById("aggiungi").style.display = "inline"
-    document.getElementById("elimina").style.display = "none"
+  const elimina = (cu, id) => {
+    jsonPathString = pathString.replace(cu + ",", '');
+    setPathString(jsonPathString);
+    console.log(jsonPathString)
+    document.getElementById("aggiungi" + id).style.display = "inline"
+    document.getElementById("elimina" + id).style.display = "none"
   }
 
   if (modal) {
@@ -74,12 +93,20 @@ function CreatePath() {
   var cuJson = new Object();
   var jsonString = "";
 
-  function buildCu() {
-    cuJson.name = { nameCu };
-    cuJson.coordinates = { text };
-    jsonString = JSON.stringify(cuJson);
-    setText(jsonString);
-    addCu(text, setText, setCu)
+  const buildPath = () => {
+
+    if (text === "") {
+      document.getElementById('error').style.display = "inline"
+    } else {
+      document.getElementById('error').style.display = "none"
+      var string = pathString + "]"
+      string = string.replace(",]", "]")
+      var obj = JSON.parse(string)
+      console.log(string)
+      console.log(obj)
+      addPath(string, setText, setPath)
+    }
+    
   }
 
   return (
@@ -94,12 +121,15 @@ function CreatePath() {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
+        <div>
+          <p id="error" className="error">Please, enter the path name</p>
+        </div>
       </div>
       <div
         className="add"
         onClick={isUpdating ?
           () => updateCu(CuId, text, setCu, setText, setIsUpdating)
-          : () => addCu(text, setText, setCu)}>
+          : () => buildPath()}>
         {isUpdating ? "Update" : "Add"}
       </div>
       <div className="cuCentered">
@@ -108,8 +138,9 @@ function CreatePath() {
             key={item._id}
             text={getName(item.text)}
             getInfo={() => toggleModal(item.text)}
-            deleteCu={() => elimina(item, setCu)}
-            addCu={() => aggiungi(text, setText, setCu)} />)}
+            deleteCu={() => elimina(item.text, item._id)}
+            addCu={() => aggiungi(item.text, item._id)}
+            index={item._id} />)}
         </div>
       </div>
       <div className="cuCentered">
