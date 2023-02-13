@@ -6,9 +6,10 @@ import { getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
 function ControlUnit() {
 
   const [cu, setCu] = useState([])
-  const [text, setText] = useState("")
-  // const [nameCu, setNameCu] = useState("")
-  // const [name, setName] = useState("")
+  const [name, setName] = useState("")
+  const [long, setLong] = useState("")
+  const [lat, setLat] = useState("")
+  const [json, setJson] = useState("")
   const [isUpdating, setIsUpdating] = useState(false)
   const [CuId, setCuId] = useState("")
 
@@ -16,58 +17,68 @@ function ControlUnit() {
     getAllCu(setCu)
   }, [])
 
-  const updateMode = (_id, text) => {
+  const updateMode = (_id, name) => {
     setIsUpdating(true)
-    setText(text)
+    setName(name)
     setCuId(_id)
   }
 
-  // var cuJson = new Object();
-  // var jsonString = "";
+  var cuJson = new Object();
+  var jsonString = "";
 
-  // function buildCu() {
-  //   cuJson.name = { nameCu };
-  //   cuJson.coordinates = { text };
-  //   jsonString = JSON.stringify(cuJson);
-  //   setText(jsonString);
-  //   addCu(text, setText, setCu)
-  // }
+  const buildCu = (name, lat, long, setJson, setCu) => {
+    cuJson.name = name;
+    cuJson.latitude = lat;
+    cuJson.longitude = long;
+    jsonString = JSON.stringify(cuJson);
+    setJson(jsonString);
+    addCu(jsonString, setJson, setCu)
+    setName("");
+    setLat("")
+    setLong("");
+
+  }
+
+  function getName(json){
+    var obj = JSON.parse(json);
+    return obj.name
+  }
 
   return (
     <div className="App">
       <div className="centered">
-      <h1>Control Unit</h1>
+        <h1>Control Unit</h1>
         <input
           type="text"
           placeholder="Name of Control Unit"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={name}
+          onChange={(e) => setName(e.target.value)}
         />
         <input
           type="text"
           placeholder="Latitudine"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={lat}
+          onChange={(e) => setLat(e.target.value)}
         />
         <input
           type="text"
           placeholder="Longitudine"
-          value={text}
-          onChange={(e) => setText(e.target.value)}
+          value={long}
+          onChange={(e) => setLong(e.target.value)}
         />
       </div>
       <div
         className="add"
         onClick={isUpdating ?
-          () => updateCu(CuId, text, setCu, setText, setIsUpdating)
-          : () => addCu(text, setText, setCu)}>
+          () => updateCu(CuId, name, setCu, setName, setIsUpdating)
+          : () => buildCu(name, lat, long, setJson, setCu)}>
         {isUpdating ? "Update" : "Add"}
       </div>
       <div className="cuCentered">
         <div className="list">
           {cu.map((item) => <Cu
             key={item._id}
-            text={item.text}
+            text={getName(item.text)}
             updateMode={() => updateMode(item._id, item.text)}
             deleteCu={() => deleteCu(item._id, setCu)} />)}
         </div>

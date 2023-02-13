@@ -31,6 +31,16 @@ const getAllVehicle = (setVehicle) => {
     
 }
 
+const getVehicle = (setVehicle) => {
+    axios
+        .get(`${baseUrl}/getVehicle`)
+        .then(({ data }) => {
+            setVehicle(data)
+            return data;
+        })
+    
+}
+
 
 const addPath = (text, setText, setPath) => {
 
@@ -147,4 +157,4 @@ const deleteVehicle = (_id, setVehicle) => {
 }
 
 
-export { getAllVehicle, getAllCu, getAllPath, addVehicle, addCu, addPath, updateVehicle, updateCu, updatePath, deleteVehicle, deleteCu, deletePath }
+export { getVehicle, getAllVehicle, getAllCu, getAllPath, addVehicle, addCu, addPath, updateVehicle, updateCu, updatePath, deleteVehicle, deleteCu, deletePath }

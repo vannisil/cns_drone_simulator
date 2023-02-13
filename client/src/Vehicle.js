@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Cu from "./components/Cu";
 import Vhcl from "./components/Vhcl";
-import { getAllVehicle, addVehicle, updateVehicle, deleteVehicle } from "./utils/HandleApi";
+import { getVehicle, getAllVehicle, addVehicle, updateVehicle, deleteVehicle } from "./utils/HandleApi";
 
 
 function Vehicle() {
@@ -27,6 +27,10 @@ function Vehicle() {
   var cuJson = new Object();
   var jsonString = "";
 
+  function add(text){
+    addVehicle(text, setText, setVehicle);
+    console.log(vehicle)
+  }
   // function buildCu() {
   //   cuJson.name = { nameCu };
   //   cuJson.coordinates = { text };
@@ -52,7 +56,7 @@ function Vehicle() {
         className="add"
         onClick={isUpdating ?
           () => updateVehicle(VehicleId, text, setVehicle, setText, setIsUpdating)
-          : () => addVehicle(text, setText, setVehicle)}>
+          : () => add(text)}>
         {isUpdating ? "Update" : "Add"}
       </div>
       <div className="cuCentered">
