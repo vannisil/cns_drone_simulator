@@ -5,10 +5,10 @@ import {AiFillCloseCircle} from "react-icons/ai"
 import {AiFillInfoCircle} from "react-icons/ai"
 import {AiFillPlusCircle} from "react-icons/ai"
 
-const CuForPath = ({text, getInfo, deleteCu, addCu, index}) => {
+const CuForPath = ({id, text, getInfo, deleteCu, addCu, index}) => {
 
     return (
-        <div className="cu">
+        <div className="cu" id={id}>
             <div className="text">{text}</div>
             <input className="input" type="date" id={"date" + index}></input>
             <input className="input" type="time" id={"time" + index}></input>

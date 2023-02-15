@@ -22,4 +22,5 @@ router.post('/saveVehicle', saveVehicle)
 router.post('/updateVehicle', updateVehicle)
 router.post('/deleteVehicle', deleteVehicle )
 
+
 module.exports = router;
