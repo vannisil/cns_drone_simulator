@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Cu from "./components/Cu";
 import CuForPath from "./components/CuForPath";
-import {getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
+import { getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
 import { getAllPath, addPath, updatePath, deletePath } from "./utils/HandleApi";
 import { AiFillCloseCircle } from "react-icons/ai"
 
@@ -136,6 +136,17 @@ function CreatePath() {
 
   }
 
+  function go() {
+    if (text != '') {
+      document.getElementById('listCu').style.display = "inline";
+      document.getElementById('nameOfPath').disabled = true;
+      document.getElementById('error').style.display = "none"
+    } else {
+      document.getElementById('error').style.display = "inline"
+    }
+
+  }
+
   return (
     <div className="App">
       <div className="centered">
@@ -143,32 +154,38 @@ function CreatePath() {
         <br></br>
         <p>Insert the name of the path and choose the steps</p>
         <input
+          id="nameOfPath"
           type="text"
           placeholder="Path name"
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
+        <button onClick={go} className="button">
+          Enter
+        </button>
         <div>
           <p id="error" className="error">Please, enter the path name</p>
         </div>
       </div>
-      <div
-        className="add"
-        onClick={isUpdating ?
-          () => updateCu(CuId, text, setCu, setText, setIsUpdating)
-          : () => buildPath()}>
-        {isUpdating ? "Update" : "Add"}
-      </div>
-      <div className="cuCentered">
-        <div className="list">
-          {cu.map((item) => <CuForPath
-            key={item._id}
-            id={item._id}
-            text={getName(item.text)}
-            getInfo={() => toggleModal(item.text)}
-            deleteCu={() => elimina(item.text, item._id)}
-            addCu={() => aggiungi(item.text, item._id)}
-            index={item._id} />)}
+      <div className="vis" id="listCu">
+        <div className="cuCentered">
+          <div className="list">
+            {cu.map((item) => <CuForPath
+              key={item._id}
+              id={item._id}
+              text={getName(item.text)}
+              getInfo={() => toggleModal(item.text)}
+              deleteCu={() => elimina(item.text, item._id)}
+              addCu={() => aggiungi(item.text, item._id)}
+              index={item._id} />)}
+          </div>
+        </div>
+        <div
+          className="addCu"
+          onClick={isUpdating ?
+            () => updateCu(CuId, text, setCu, setText, setIsUpdating)
+            : () => buildPath()}>
+          {isUpdating ? "Update" : "Add"}
         </div>
       </div>
       <div className="cuCentered">

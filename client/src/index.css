@@ -66,6 +66,25 @@ input{
   background-color: #626262;
 }
 
+.addCu{
+  background-color: #252525;
+  color: #fff;
+  width: 5%;
+  padding: 0.5rem 1.5rem;
+  margin-top: 410px;
+  position: absolute;
+  top: 30%;
+  left: 55%;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.addCu:hover{
+  cursor: pointer;
+  background-color: #626262;
+}
+
 .cu{
   position: relative;
   margin-top: 1rem;
@@ -225,4 +244,17 @@ input{
 
 .error{
   display: none;
+}
+
+.vis{
+  display: none;
+}
+
+.button{
+  background-color: #000;
+  color: #d7d7d7;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 10px;
+  cursor: pointer;
 }
