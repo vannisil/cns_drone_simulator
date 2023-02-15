@@ -26,6 +26,7 @@ function History() {
   }
 
   function getName(json) {
+    console.log(obj)
     var obj = JSON.parse(json);
     return obj[0].namepath
   }

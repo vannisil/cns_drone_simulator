@@ -70,10 +70,12 @@ function CreatePath() {
   }
 
   const elimina = (cu, id) => {
-    var cuString = '{"namepath":"",' + cu.replace('{', "") + ",";
+    var cuString = '{"namepath":"' + text + '",' + cu.replace('{', "") + ",";
     cuString = cuString.replace("},", ',"time":"' + document.getElementById("time" + id).value + '","date":"' + document.getElementById("date" + id).value + '"},')
     console.log(pathString.replace(cuString, ""))
     var path = pathString.replace(cuString, "");
+    console.log("da togliere ------>" + cuString)
+    console.log("aggiornato ----->" + path)
     setPathString(path)
     console.log(pathString)
     document.getElementById("date" + id).disabled = false;
@@ -92,6 +94,7 @@ function CreatePath() {
   useEffect(() => {
     getAllCu(setCu)
     getAllPath(setPath)
+    console.log(pathString)
   }, [])
 
   const updateMode = (_id, text) => {
@@ -122,6 +125,7 @@ function CreatePath() {
         for (var i; i < obj.length; i++) {
           obj[i]["namepath"] = text;
         }
+        console.log(pathString)
         console.log(string)
         console.log(obj)
         addPath(string, setText, setPath)
