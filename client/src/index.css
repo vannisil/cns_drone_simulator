@@ -181,6 +181,17 @@ input{
   width: 600px;
 }
 
+.centeredS {
+  position: absolute;
+  top: 20%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 5px;
+  height: 250px;
+  width: 600px;
+}
+
 .centered img {
   width: 150px;
   border-radius: 50%;
