@@ -50,48 +50,22 @@ function Simulator() {
             var time = (obj[i].time)
             var time1 = (obj[i + 1].time)
             if (date < currentDate) {
+                if(date1 < currentDate){
+                } else if(date1 >= currentDate){
+                    if(time1 >= currentTime){
+                        var step = i + 1;
+                    }
+                }
+            }
+            else if(date === currentDate){
                 if(date1 === currentDate){
-                    console.log("il drone si trova nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 + " ad oggi")
-                }
-                else if (date1 > currentDate){
-                    console.log("non è nello step " + (i + 1) + "perchè " + date + " " + currentDate + " " + date1)
-                }
-            }
-            else if (date === currentDate && date1 === currentDate) {
-                if (time < currentTime || currentTime > time1) {
-                    console.log("non è nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 )
-                } else if (time < currentTime && currentTime <= time1) {
-                    console.log("il drone si trova nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 + " ad oggi")
-                }
-            }
-            else if (date < currentDate && date1 === currentDate) {
-                if (currentTime <= time1) {
-                    console.log("il drone si trova nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 + " ad oggi")
-                } else console.log("non è nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 + " ad oggi")
-            }
-            else if (date < currentDate && date1 > currentDate) {
-                if (time < currentTime || currentTime > time1) {
-                    console.log("non è nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 + "tra " + date + " " + date1)
-                } else if (time < currentTime && currentTime <= time1) {
-                    console.log("il drone si trova nello step " + (i + 1) + "perchè " + time + " " + currentTime + " " + time1 + "tra " + date + " " + date1)
+                    if(time1 >= currentTime && time < currentTime){
+                        var step = i + 1;
+                    }
                 }
             }
         }
-        var time = (obj[0].time)
-        var time1 = (obj[1].time)
-        console.log(time + " " + currentTime + " " + time1)
-        if (time < currentTime) {
-            console.log("funziona")
-        }
-        // var lt = parseInt(obj[0].latitude)
-        // var lg = parseInt(obj[0].longitude)
-        // var date = (obj[0].date)
-        // var currentDate = ((new Date).toISOString().split('T')[0]);
-        // console.log(currentDate)
-        // console.log(date)
-        // if (currentDate < date) {
-        //     console.log(true)
-        // }
+        console.log(step)
     }
 
     var obj;
@@ -100,10 +74,6 @@ function Simulator() {
         console.log(obj)
         obj = JSON.parse(json);
         return obj[0].namepath
-    }
-
-    function getStep(json) {
-        var lenght = obj.lenght;
     }
 
     return (
