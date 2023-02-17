@@ -8,7 +8,7 @@ import React from "react";
 import {AiFillHome} from "react-icons/ai";
 import {AiFillEnvironment} from "react-icons/ai";
 import {TiFlowSwitch} from "react-icons/ti";
-import {FaPlaneDeparture} from "react-icons/fa";
+import {MdBackup} from "react-icons/md";
 import {AiFillControl} from "react-icons/ai";
 import {AiOutlineHistory} from "react-icons/ai";
 
@@ -27,15 +27,15 @@ export const SidebarData = [
     },
 
     {
-        title: "Vehicle",
-        icon: <FaPlaneDeparture/>,
-        link: "/vehicle"
-    },
-
-    {
         title: "Path",
         icon: <TiFlowSwitch/>,
         link: "/path"
+    },
+
+    {
+        title: "History",
+        icon: <AiOutlineHistory/>,
+        link: "/history"
     },
 
     {
@@ -45,8 +45,8 @@ export const SidebarData = [
     },
 
     {
-        title: "History",
-        icon: <AiOutlineHistory/>,
-        link: "/history"
-    },
+        title: "Backup",
+        icon: <MdBackup/>,
+        link: "/backup"
+    }
 ]

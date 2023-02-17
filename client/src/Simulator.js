@@ -32,6 +32,8 @@ function Simulator() {
             .then((response) => response.json())
             .then((position) => longitude = position.longitude)
 
+        document.getElementById('list').style.display = 'inline';
+
     }
 
     var step = 0;
@@ -113,20 +115,17 @@ function Simulator() {
         <div className="Home">
             <div className="centeredS">
                 <h1>Simulator</h1>
-                <button onClick={getMyData}>
-                    ok
+                <button onClick={getMyData} className="getButton">
+                    Retrive the vehicle's coordinates
                 </button>
             </div>
-            <div className="cuCentered">
+            <div className="cuCenteredS" id="list">
                 <div className="list">
                     {path.map((item) => <PathSimulator
                         key={item._id}
-                        text={getName(item.text)} />)}
+                        text={getName(item.text)}
+                        startPath={get} />)}
                 </div>
-            </div>
-            <div
-                className="addCu"
-                onClick={get}>
             </div>
             <div className="cuCentered">
                 {modal && (
