@@ -181,6 +181,18 @@ input{
   width: 600px;
 }
 
+.centeredHome{
+  position: absolute;
+  top: 10%;
+  left: 55%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  background-color: #d7d7d7;
+  border-radius: 5px;
+  height: 80px;
+  width: 600px;
+}
+
 .centeredS {
   position: absolute;
   top: 20%;

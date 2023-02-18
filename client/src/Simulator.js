@@ -40,6 +40,10 @@ function Simulator() {
     var isInPath;
     var step1;
     var step2;
+    var longitude1;
+    var longitude2;
+    var latitude1;
+    var latitude2;
 
     const get = () => {
         console.log("latitude:" + latitude + "\n longitude:" + longitude)
@@ -72,24 +76,31 @@ function Simulator() {
         }
         if (step === 0) {
             isInPath = false;
+            console.log(step)
         }
-        var latitude1 = obj[(step - 1)].latitude;
-        var latitude2 = obj[step].latitude;
-        if (latitude1 < latitude && latitude2 >= latitude) {
-            isInPath = true;
-        } else isInPath = false;
+        else {
 
-        var longitude1 = obj[step - 1].longitude;
-        var longitude2 = obj[step].longitude;
-        if (longitude1 < longitude && longitude2 >= longitude) {
-            isInPath = true;
-        } else isInPath = false;
+            latitude1 = obj[(step - 1)].latitude;
+            latitude2 = obj[step].latitude;
+            longitude1 = obj[step - 1].longitude;
+            longitude2 = obj[step].longitude;
 
-        step1 = obj[step - 1].name;
-        step2 = obj[step].name;
-        console.log(step)
-        console.log(isInPath)
-        console.log(obj[step].latitude)
+
+            if (latitude1 < latitude && latitude2 >= latitude) {
+                isInPath = true;
+            } else isInPath = false;
+
+            
+            if (longitude1 < longitude && longitude2 >= longitude) {
+                isInPath = true;
+            } else isInPath = false;
+
+            step1 = obj[step - 1].name;
+            step2 = obj[step].name;
+            console.log(step)
+            console.log(isInPath)
+            console.log(obj[step].latitude)
+        }
         toggleModal()
     }
 
@@ -101,15 +112,19 @@ function Simulator() {
         return obj[0].namepath
     }
 
+    var popUpText;
+
     const toggleModal = () => {
-        var popUpText = "your vehicle is between " + step1 + " and " + step2;
+        if(isInPath){
+            popUpText = "your vehicle is between " + step1 + " and " + step2;
+        } else popUpText = "is not in path"
         setPopText(popUpText)
         setModal(!modal);
-      };
-    
-      const toggleModalExit = () => {
+    };
+
+    const toggleModalExit = () => {
         setModal(!modal);
-      };
+    };
 
     return (
         <div className="Home">

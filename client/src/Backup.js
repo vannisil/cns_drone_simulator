@@ -44,6 +44,7 @@ function Backup() {
                 <h1>Backup</h1>
                 <br></br>
                 <h3>Get your collection's json file</h3>
+                <br></br>
                 <p>Here you can find all the collections of the database as a file in json format.</p>
                 <p>In this way you can easily import it in your local database</p>
             </div>
