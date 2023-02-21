@@ -37,7 +37,7 @@ function Home() {
                 <br></br>
                 <br></br>
                 <br></br>
-                <p>The main purpose of the AHEREUM application is to create and manage routes for aircraft.</p>
+                <p>The main purpose of the AVNET application is to create and manage routes for aircraft.</p>
                 <br></br>
                 <p>Specifically, as a result of entering a name and a set of coordinates, a path can be generated and consequently loaded into a database.</p>
                 <br></br>
