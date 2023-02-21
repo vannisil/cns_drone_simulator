@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import PathSimulator from "./components/PathSimulator";
 import { getAllPath, addPath, updatePath, deletePath } from "./utils/HandleApi";
 import { AiFillCloseCircle } from "react-icons/ai"
-import { getAllCu } from "./utils/HandleApi";
+import * as serviceWorker from './serviceWorker';
 
 
-const url = 'http://localhost:5000';
+const url = 'http://localhost:5000'
 
 function Simulator() {
     const [path, setPath] = useState([])
@@ -90,7 +90,7 @@ function Simulator() {
                 isInPath = true;
             } else isInPath = false;
 
-            
+
             if (longitude1 < longitude && longitude2 >= longitude) {
                 isInPath = true;
             } else isInPath = false;
@@ -115,7 +115,7 @@ function Simulator() {
     var popUpText;
 
     const toggleModal = () => {
-        if(isInPath){
+        if (isInPath) {
             popUpText = "your vehicle is between " + step1 + " and " + step2;
         } else popUpText = "is not in path"
         setPopText(popUpText)
@@ -161,5 +161,5 @@ function Simulator() {
     );
 
 }
-
+serviceWorker.unregister();
 export default Simulator

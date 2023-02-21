@@ -44,10 +44,10 @@ function History() {
 
   return (
     <div className="App">
-      <div className="centered">
+      <div className="centeredS">
       <h1>History</h1>
       <br></br>
-      <p>All the path created</p>
+      <p>Here you cand find all the paths created to delete them</p>
       </div>
       <div className="cuCentered">
         <div className="list">
