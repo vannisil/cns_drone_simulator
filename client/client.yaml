@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
         - name: cns-frontend
-          image: vannisil/dockerized-drone-simulator
+          image: vannisil/avnet-frontend
           ports:
             - containerPort: 3000

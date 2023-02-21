@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: drone-server
-          image: vannisil/drone-simulator-server
+          image: vannisil/avnet-backend
           resources:
             limits:
               memory: "150Mi"
