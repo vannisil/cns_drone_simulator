@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Cu from "./components/Cu";
 import { getAllCu, addCu, updateCu, deleteCu } from "./utils/HandleApi";
 
-
 function ControlUnit() {
 
   const [cu, setCu] = useState([])
