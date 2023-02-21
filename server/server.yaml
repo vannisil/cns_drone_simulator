@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drone-server
+spec:
+  selector:
+    matchLabels:
+      app: drone-server
+  template:
+    metadata:
+      labels:
+        app: drone-server
+    spec:
+      containers:
+        - name: drone-server
+          image: vannisil/drone-simulator-server
+          resources:
+            limits:
+              memory: "150Mi"
+              cpu: "700m"
+          ports:
+            - containerPort: 5000

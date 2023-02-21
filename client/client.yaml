@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cns-frontend
+spec:
+  selector:
+    matchLabels:
+      app: cns-frontend
+  template:
+    metadata:
+      labels:
+        app: cns-frontend
+    spec:
+      containers:
+        - name: cns-frontend
+          image: vannisil/dockerized-drone-simulator
+          ports:
+            - containerPort: 3000
