@@ -1,18 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cns-frontend
+  name: avnet-frontend
 spec:
   selector:
     matchLabels:
-      app: cns-frontend
+      app: avnet-frontend
   template:
     metadata:
       labels:
-        app: cns-frontend
+        app: avnet-frontend
     spec:
       containers:
-        - name: cns-frontend
+        - name: avnet-frontend
           image: vannisil/avnet-frontend
           ports:
             - containerPort: 3000
+
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: avnet-frontend
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+      protocol: TCP
+      nodePort: 32000
+  selector:
+    app: avnet-frontend

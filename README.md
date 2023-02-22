@@ -22,4 +22,5 @@ creting dockerhub files:
 starting kubernetes:
 -minikube start
 -kubectl apply -f client.yaml
--kubectl port-forward <pod name> 3000:3000 (5000:5000 for server)
+-kubectl port-forward <pod name> 5000:5000 for server
+-minikube service avnet-frontend --url
