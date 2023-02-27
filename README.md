@@ -1,3 +1,4 @@
+# Docker commands
 After lunching the commands below, open Docker Desktop.
 
 Commands to build images:
@@ -10,17 +11,23 @@ Commands to run containers:
 - for server:  _docker run -p 5000:5000 -d dockerized-drone-server_
 
 
-
-
-
-KUBERNETS COMMANDS
+# KUBERNETS COMMANDS
 
 creting dockerhub files:
--docker tag dockerized-drone-simulator vannisil/dockerized-drone-simulator
--docker push vannisil/dockerized-drone-simulator
+```sh
+docker tag dockerized-drone-simulator vannisil/dockerized-drone-simulator
+docker push vannisil/dockerized-drone-simulator
+```
 
-starting kubernetes:
--minikube start
--kubectl apply -f client.yaml
--kubectl port-forward <pod name> 5000:5000 for server
--minikube service avnet-frontend --url
+Starting kubernetes:
+```sh
+# Minikube reccommended version: 1.29.0
+minikube start
+# Deployments
+kubectl apply -f ./client/client.yaml
+kubectl apply -f ./client/server.yaml
+# Services
+kubectl port-forward <pod name> 5000:5000 for server
+minikube service avnet-frontend --url
+# Ingress
+```
