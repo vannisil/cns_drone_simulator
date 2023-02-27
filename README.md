@@ -1,3 +1,11 @@
+minikube:
+v1.29.0
+
+Kubernetes:
+Client Version: v1.25.4
+Kustomize Version: v4.5.7
+
+
 After lunching the commands below, open Docker Desktop.
 
 Commands to build images:
@@ -23,4 +31,4 @@ starting kubernetes:
 -minikube start
 -kubectl apply -f client.yaml
 -kubectl port-forward <pod name> 5000:5000 for server
--minikube service avnet-frontend --url
+-minikube service <service name> --url
