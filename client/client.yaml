@@ -18,18 +18,18 @@ spec:
             - containerPort: 3000
 
 
----
+# ---
 
-kind: Service
-apiVersion: v1
-metadata:
-  name: avnet-frontend
-spec:
-  type: NodePort
-  ports:
-    - port: 3000
-      targetPort: 3000
-      protocol: TCP
-      nodePort: 32000
-  selector:
-    app: avnet-frontend
+# kind: Service
+# apiVersion: v1
+# metadata:
+#   name: avnet-frontend
+# spec:
+#   type: NodePort
+#   ports:
+#     - port: 3000
+#       targetPort: 3000
+#       protocol: TCP
+#       nodePort: 32000
+#   selector:
+#     app: avnet-frontend
