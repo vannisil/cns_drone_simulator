@@ -27,7 +27,11 @@ minikube start
 kubectl apply -f ./client/client.yaml
 kubectl apply -f ./server/server.yaml
 # Services
-kubectl port-forward <pod name> 5000:5000 for server
-minikube service avnet-frontend --url
+# kubectl port-forward <pod name> 5000:5000 for server
+# minikube service avnet-frontend --url
+kubectl apply -f ./server/frontend-service.yaml
+kubectl apply -f ./server/backend-service.yaml
+kubectl apply -f ./server/lb-avnet.yaml
+
 # Ingress
 ```
