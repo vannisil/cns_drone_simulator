@@ -25,7 +25,7 @@ Starting kubernetes:
 minikube start
 # Deployments
 kubectl apply -f ./client/client.yaml
-kubectl apply -f ./client/server.yaml
+kubectl apply -f ./server/server.yaml
 # Services
 kubectl port-forward <pod name> 5000:5000 for server
 minikube service avnet-frontend --url
