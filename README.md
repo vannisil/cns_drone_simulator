@@ -33,5 +33,9 @@ kubectl apply -f ./server/frontend-service.yaml
 kubectl apply -f ./server/backend-service.yaml
 kubectl apply -f ./server/lb-avnet.yaml
 
-# Ingress
+
+#Load Balancer
+minikube service lb-avnet
+kubectl get pods
+kubectl port-forward 'podname' 5000:5000
 ```
