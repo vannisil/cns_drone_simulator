@@ -3,8 +3,6 @@ kind: Service
 metadata:
   name: lb-avnet
 spec:
-  externalIPs:
-    - "192.168.49.2"
   selector:
     app: avnet-frontend
   ports:
